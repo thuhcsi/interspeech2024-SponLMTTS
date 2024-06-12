@@ -1,0 +1,352 @@
+<html lang="en-US"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
+    <style>
+      li {
+          list-style-type: disc;
+      }
+    </style>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Demo for spontaneousTTS</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="Abstract">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="submitted to INTERSPEECH 2023.">
+<meta property="og:description" content="submitted to INTERSPEECH 2023.">
+<link rel="canonical" href="https://anonymousdemo002.github.io/spontaneousTTS/">
+<meta property="og:url" content="https://anonymousdemo002.github.io/spontaneousTTS/">
+<meta property="og:site_name" content="Towards Spontaneous Style Modeling with Semi-supervised Pre-training for Conversational Text-to-Speech Synthesis">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Abstract">
+<script type="application/ld+json">
+{"description":"submitted to INTERSPEECH 2024.","url":"https://anonymousdemo002.github.io/SponLMTTS/","@type":"WebSite","headline":"Abstract","name":"Spontaneous Style Text-to-Speech Synthesis with Controllable Spontaneous Behaviors Based on Language Models","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <div>
+              <div style="width: 70%;">
+                <h1 id="project_title">Spontaneous Style Text-to-Speech Synthesis with Controllable Spontaneous Behaviors Based on Language Models</h1>
+                <h2 id="project_tagline">submitted to INTERSPEECH 2024.</h2>
+              </div>
+          </div>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="abstract">Abstract</h1>
+
+<p>Spontaneous style speech synthesis, which aims to generate human-like speech, often encounters challenges due to the scarcity of high-quality data and limitations in model capabilities. Recent language model-based TTS systems can be trained on large, diverse, and low-quality speech datasets, resulting in highly natural synthesized speech. However, they are limited by the difficulty of simulating various spontaneous behaviors and capturing prosody variations in spontaneous speech. In this paper, we propose a novel spontaneous speech synthesis system based on language models. We systematically categorize and uniformly model diverse spontaneous behaviors. Moreover, fine-grained prosody modeling is introduced to enhance the model's ability to capture subtle prosody variations in spontaneous speech. Experimental results show that our proposed method significantly outperforms the baseline methods in terms of prosody naturalness and spontaneous behavior naturalness.</p>
+
+
+<h2 id="subjective-evaluation">The Definitions, lexical features and acoustic characteristics of spontaneous behaviors</h2>
+<li><strong>Filled pause</strong>: A semantically empty element of speech that delays the transfer of the speaker's message and is usually expressed in the form of "em", "uh", etc; and have acoustic extensions at the end of the characters.</li>
+<li><strong>Repetitions</strong>: Fully repeated word sequences; specifically refers to disfluent repetitions, which cannot be explained or justified by Mandarin grammatical rules. Acoustic features include multiple characters with short and heavy speech.</li>
+<li><strong>Stutter</strong>: Speakers may hesitate or stutter when they have problems in finding the correct words; there may be pauses in the speech.</li>
+<li><strong>Prolongation</strong>: Mainly used to indicate hesitation and to emphasize the discourse focus; and have acoustic extensions at the end of the characters.</li>
+<li><strong>Doubt</strong>: Indicates a questioning tone; often appears in words like "Huh? What?"; with a rising tone at the end.</li>
+<li><strong>Response</strong>: Indicates a responsive tone; often appears in words like "Uh,hey!"; fast and firm speech.</li>
+<li><strong>Surprise</strong>: Expressions of surprise, realizations or discovery; excited, with a rising tone at the end.</li>
+<li><strong>Positive feedback</strong>: Positively-valenced content including feedback, good news, etc; often appears in words like "um, Yeah"; excited tone and faster speech.</li>
+<li><strong>Reminder</strong>: Reminding someone to pay attention to something; heavier tone, fast, to attract the other person's attention.</li>
+<li><strong>Realization</strong>: Indicates sudden understanding or enlightenment; often appears in words like "Oh, ah".</li>
+<li><strong>Sigh</strong>: Indicates helplessness or sadness; often appears in words like "hey"; depressed, with a lowering tone.</li>
+<li><strong>Coquetry</strong>: Indicates coquetry, pleasing, and affectation; generally has a higher tone and affects the prosody of the entire sentence.</li>
+<li><strong>Snort</strong>: Indicates dissatisfaction or anger with a situation and makes a humming sound; very short in duration.</li>
+<li><strong>Smile</strong>: The lightest degree of laughter, generally out of politeness.</li>
+<li><strong>Cachinnation</strong>: Very loud and unrestrained laughter. Occurs when a person is very happy; high-pitched tone.</li>
+<li><strong>Wry smile</strong>: A forced smile when in a bad mood; lower tone.</li>
+<li><strong>Awkward laughter</strong>: Laughter resulting from embarrassment, helplessness, or self-mockery.</li>
+<li><strong>Scoff</strong>: A laugh containing sarcasm or dissatisfaction.</li>
+<li><strong>Involuntary laughter</strong>: Laughter that cannot be controlled and is involuntarily emitted.</li>
+<strong>NOTE:</strong> Each laughter category has a corresponding laughter token for input on the text token side 
+
+
+<h1 id="Audio samples for different models">Audio samples for different models</h1>
+<p>
+  <li><strong>FastSpeech 2 :</strong> Avanilla FastSpeech 2 which is trained on spontaneous corpus, dose no explicitly model spontaneous behavior.</li>
+  <li><strong>VALL-E :</strong> A neural codec language model VALL-E. We trained the model in two Mandarin corpus and used it as our <strong>baseline</strong> model.</li>
+  <li><strong>Base-L :</strong> The VALL-E with the syntactic-aware spontaneous behavior modeling, excludes the prosody representations.</li>
+  <li><strong>Proposed :</strong> The model we propose in this paper, which considers syntactic-aware spontaneous behavior modeling and spontaneous prosody modeling based on VALL-E.</li>
+</p>
+<p>
+  <strong>NOTE:</strong> In the text, <strong>&lt;laughter&gt;</strong> indicates laughter. <strong>(Spontaneous Behavior type of Chinese and English)</strong> denotes the type of spontaneous behaviors, and the text corresponding to the spontaneous behavior is bolded. 
+</p>
+          
+<h3 id="mos1">MOS</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Target Chinese Text</th>
+      <th style="text-align: left">FastSpeech 2</th>
+      <th style="text-align: left">VALL-E</th>
+      <th style="text-align: left">Base-L</th>
+      <th style="text-align: left">Proposed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;(忍不住笑,Involuntary laughter)</strong>好啊我今天就过来找你。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/0.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/0.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/0.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/0.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>那那那(结巴,Stutter)</strong>你做买卖啊。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">今天是个好日子，那就做两组普拉提吧!</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/8.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/8.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/8.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/8.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;(嘲笑,Scoff)</strong>你这个技术，还是先赢了他再说吧。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/17.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/17.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/17.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/17.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;(大笑,Cachinnation)</strong>这个笑话太好笑了!</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/21.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/21.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/21.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/21.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>哦(醒悟,Realization)</strong>你原来以为这是在家里呀?</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/28.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/28.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/28.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/28.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>嗯(赞同,Positive feedback)</strong>，风景真美丽呀。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/30.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/30.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/30.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/30.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">你只要想见，随时都可以见的<strong>呀(撒娇,Coquetry)!</strong></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/32.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/32.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/32.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/32.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>喂(提醒,Reminder)</strong>，是不是遇到什么麻烦了，我能帮你什么吗?</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/42.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/42.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/42.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/42.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>嗯?(疑惑,Doubt)</strong>卖塑料瓶可以吗?</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/fs2Wol/51.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wopeWol/51.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/wope/51.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/MOS-mos1_SponN/pro/51.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+  </tbody>
+</table>          
+<hr>
+
+<h3 id="ABX">Comparison of manually labeled spontaneous labels and model-predicted spontaneous labels(ABX)</h1>
+<p>
+  To demonstrate that using predicted labels also produces speech with reasonably spontaneous behavior, labels are not prompted in the sample text.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Target Chinese Text</th>
+      <th style="text-align: left">Proposed-manual</th>
+      <th style="text-align: left">Proposed-predicted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">等一下，呃，这个好像不是这样的。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/pro/4.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/prolp/4.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">唉，你又觉得我不乖了是吗？</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/pro/11.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/prolp/11.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">好的好的，芋泥啵啵奶茶大杯不加冰，稍等五分钟，马上好!</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/pro/14.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/prolp/14.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&lt;laughter&gt;你怎么在这里啊。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/pro/18.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/prolp/18.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">哼，很多人总是一边嫌弃一边还玩。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/pro/25.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/ABX-abx_Spon/prolp/25.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ablation-study">Ablation Study</h1>
+<h3 id="investigation on spontaneous prosody modeling">investigation on spontaneous prosody modeling</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Target Chinese Text</th>
+      <th style="text-align: left">Proposed</th>
+      <th style="text-align: left">without spontaneous prosody modeling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>你，你(结巴,Stutter)</strong>瞎说。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/6.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/6.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;(忍不住笑,Involuntary laughter)不是</strong>，这个不是这样放的啦。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/15.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/15.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>嗯(撒娇,Coquetry)</strong>，好困，让我再睡一会吧。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/36.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/36.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">我最近开始学瑜伽，感觉对身体和心灵都很有好处。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/61.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos1_SponN/pro/61.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="investigation on spontaneous behavior modeling">Investigation on spontaneous behavior modeling</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Target Chinese Text</th>
+      <th style="text-align: left">Proposed</th>
+      <th style="text-align: left">without spontaneous behavior modeling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;(微笑,Smile)</strong>先生您的酒店在这里，请跟我走。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/pro/23.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/wol/23.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>哼(撒娇,Coquetry)</strong>，你再这样我就不理你了啊。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/pro/26.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/wol/26.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>那(填充停顿,Filled pause)</strong>，你还爱他吗?</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/pro/56.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/wol/56.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>你周末(填充停顿,Filled pause)</strong>有什么计划？我们可以<strong>一起,(填充停顿,Filled pause)</strong>，去看场电影或者散步。</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/pro/62.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CM-cmos2_SponBehaviorN/wol/62.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="case study">Controllable of spontaneous behaviors</h1>
+<p><strong>NOTE:</strong> text corresponding to the spontaneous behavior is bolded</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Target Chinese Text</th>
+      <th style="text-align: left">Spontaneous behavior type</th>
+      <th style="text-align: left">Audio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>嗯</strong>，风景真美丽呀。</td>
+      <td style="text-align: left"><strong>赞同,Positive feedback</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/1_1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>嗯</strong>，风景真美丽呀。</td>
+      <td style="text-align: left"><strong>撒娇,Coquetry</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/1_2.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>嗯</strong>，风景真美丽呀。</td>
+      <td style="text-align: left"><strong>填充停顿,Filled pause</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/1_3.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;</strong>好啊，我今天就过来找你</td>
+      <td style="text-align: left"><strong>忍不住笑,Involuntary laughter</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/2_1_23.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;</strong>好啊，我今天就过来找你</td>
+      <td style="text-align: left"><strong>尬笑,Awkward laughter</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/2_2_21.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>&lt;laughter&gt;</strong>好啊，我今天就过来找你</td>
+      <td style="text-align: left"><strong>微笑,Smile</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/2_3_18.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>你周末</strong>有什么计划？我们可以一起，去看场电影或者散步。</td>
+      <td style="text-align: left"><strong>填充停顿,Filled pause</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/3_1_1.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>你周末</strong>有什么计划？我们可以一起，去看场电影或者散步。</td>
+      <td style="text-align: left"><strong>结巴,Stutter</td>
+      <td style="text-align: left"><audio controls=""><source src="./wavs/CaseStudy/3_2_28.wav" type="audio/wav">Your browser does not support the audio element.</audio></td>
+    </tr>
+  </tbody>
+</table>
+      </section>
+
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Spontaneous Style Text-to-Speech Synthesis with Controllable Spontaneous Behaviors Based on Language Models maintained by <a href="https://github.com/anonymousdemo002">anonymousdemo002</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+  
+
+</body></html>
